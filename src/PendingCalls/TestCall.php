@@ -153,6 +153,15 @@ final class TestCall
         return $this;
     }
 
+    public function runInSeparateProcess(): self
+    {
+        $this->testCaseMethod
+            ->chains
+            ->add($this->filename, Backtrace::line(), 'setRunTestInSeparateProcess', ['Cannot run in separate process.']);
+        
+        return $this;
+    }
+
     /**
      * Skips the current test.
      */
